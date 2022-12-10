@@ -1,0 +1,127 @@
+<style>#line_chart {  
+    height: 1px;
+     margin-top: opx;
+     margin-left: 25px; }
+     img {
+    border-radius: 50%;
+  }</style>
+  
+      <section class="content dashboard">
+            <div class="main-graph">
+                    <div class="row clearfix">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-10 padding-0 overflow-hidden">
+                            <div class="graph-area">
+                                 <div id="line_chart"></div>
+                            </div> 
+                        </div>
+                      
+                    </div>
+                </div>
+                 <!-- #END# Main Graph-->
+              <div class="page-heading">
+                <h1>Default Contest</h1>
+                <ol class="breadcrumb">
+                    <li><a href="../../index">Home</a></li>
+                    <li class="active">all Contest</li>
+                </ol>
+            </div>
+            <div class="panel panel-default">
+
+<div class="panel-heading"> <button type="open-button" onclick="openForm()"class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></div>
+
+<div class="form-popup" id="myForm">
+ <h2>Add contest </h2>
+  <form  class="form-container" action="/admin/contest" enctype="multipart/form-data" method="POST">
+
+    <label for="name"><b>Contest Type</b></label>
+    <input type="text" placeholder="Enter contest_type" name="contest_type" required/>
+
+    <label for="bollean"><b>cancellation</b></label>
+    <input type="text" id="cancellation" placeholder="Enter cancellation" name="cancellation" />
+
+<label for="name"><b>Is_Free</b></label>
+    <input type="text" id="Is_Free" placeholder="Enter Is_Free" name="Is_Free" />
+
+<label for="name"><b>Entry fees</b></label>
+    <input type="text" id="Entry_fees" placeholder="Entry fees" name="Entry_fees" required/>
+
+<label for="name"><b>Total Spots</b></label>
+    <input type="text" id="Total_spots" placeholder="Enter Total_spots" name="Total_spots" required/>
+
+
+<label for="name"><b>First Winning prize</b></label>
+    <input type="text" id="First_Winning_prize" placeholder="Enter First_Winning_prize" name="First_Winning_prize" required/>
+
+<label for="name"><b>Winnig percantage</b></label>
+    <input type="text" id="Winnig_percantage" placeholder="Enter Winnig_percantage" name="Winnig_percantage" required/>
+
+<label for="name"><b>Prize pool</b></label>
+    <input type="text" id="Prize_pool" placeholder="Enter Prize_pool" name="Prize_pool" required/>
+
+<label for="name"><b>Prize breakup</b></label>
+    <input type="text" id="Prize_breakup" placeholder="Enter Prize_breakup" name="Prize_breakup" required/>
+
+
+
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+
+
+
+            <div class="panel-body">
+              <div class="table-responsive">
+                  <table id="myTable" class="table js-exportable">
+                  
+                  <thead>
+                          <tr>
+                              <th>S.No</th>
+                              <th>Contest Type</th>
+                              <th>cancellation</th>
+                              <th>Is Free</th>
+                              <th>Entry fees</th>
+                              <th>Total spots</th>
+                              <th>First Winner Prize</th>
+                              <th>Winner %</th>
+                              <th>Prize Pool</th>
+                              <th>Prize Breakup</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                <% for(var i=0; i < data.length; i++) { %>
+                                   
+                <tr>
+                    <td><%= i+1%></td>
+                    <td><%=data[i].contest_type%></td>
+                    <td><%=data[i].cancellation%></td>
+                    <td><%=data[i].Is_Free%></td>
+                    <td><%=data[i].Entry_fees%></td>
+                    <td><%=data[i].Total_spots%></td>
+                    <td><%=data[i].First_Winning_prize%></td>
+                    <td><%=data[i].Winnig_percantage%></td>
+                    <td><%=data[i].Prize_pool%></td>
+                    <td><%=data[i].Prize_breakup%></td>
+                  
+                                    
+
+  <td><a href="/admin/contest/update/<%= data[i]._id%>" class="btn btn-primary"><i class="fa fa-edit"></i>Edit</a>
+
+<a href ="delete/<%= data[i]._id%>"class="btn btn-circle  btn-lg  btn-danger"><i class="fa fa-trash"></i></a>
+</td>
+                                        </tr>
+                                        <% } %>
+                               </tbody> 
+                      </table>

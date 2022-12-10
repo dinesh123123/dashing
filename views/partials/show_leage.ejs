@@ -1,0 +1,101 @@
+<style>#line_chart {  
+    height: 1px;
+     margin-top: opx;
+     margin-left: 25px; }
+     </style>
+  
+      <section class="content dashboard">
+            <div class="main-graph">
+                    <div class="row clearfix">
+                        <div class="col-xs-12 col-sm-6 col-md-8 col-lg-10 padding-0 overflow-hidden">
+                            <div class="graph-area">
+                                 <div id="line_chart"></div>
+                            </div> 
+                        </div>
+                      
+                    </div>
+                </div>
+                 <!-- #END# Main Graph-->
+              <div class="page-heading">
+                <h1>All leage Banner</h1>
+                <ol class="breadcrumb">
+                    <li><a href="../../index">Home</a></li>
+                    <li class="active">Leage Banner</li>
+                </ol>
+            </div>
+            <div class="panel panel-default">
+
+
+ <div class="panel-heading"> <button type="open-button" onclick="openForm()"class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button></div>
+<div class="form-popup" id="myForm">
+ <h2>Add Leage Banner</h2>
+  <form  class="form-container"action="/admin/leage" enctype="multipart/form-data" method="POST">
+
+    <label for="name"><b>Title Name</b></label>
+    <input type="text" placeholder="Enter banner_title" name="banner_title" required>
+
+    <label for="name"><b>Team Name</b></label>
+    <input type="text" placeholder="Enter team_names" name="team_names" required>
+
+    <label for="name"><b>Date</b></label>
+    <input type="text" placeholder="Enter date" name="date" required>
+
+    <label for="file"><b>select file</b></label>
+    <input type="file" placeholder="Choose image" name="image"  required>
+    <br><br>
+
+    <button type="submit" class="btn">Submit</button>
+    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+  </form>
+</div>
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+
+
+            <div class="panel-body">
+              <div class="table-responsive">
+                  <table id="myTable" class="table js-exportable">
+                  
+                  <thead>
+                          <tr>
+                              <th>S.No</th>
+                              <th>Leage Name</th>
+                              <th>team_names</th>
+                              <th>short team_names</th>
+                              <th>Prize pool </th>
+                              <th>status</th>
+                               <th>contest type</th>
+                              <th>date</th>
+                              <th>image</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+
+                      <tbody>
+                        <% for(var i=0; i < data.length; i++) { %>
+                                   
+                                    <tr>
+                <td><%= i+1%></td>
+              <td><%=data[i].leage_name%></td>
+              <td><%=data[i].team_names%></td>
+               <td><%=data[i].short_team_names%></td>
+                <td><%=data[i].Prize_pool%></td>
+                 <td><%=data[i].status%></td>
+               <td><%=data[i].contest_type%></td>
+               <td><%=data[i].date%></td>
+              <td><img src="/uploads/<%=data[i].image%>"alt="cars"style="height:75px;weight:75px;"></td>
+                                        
+  
+                       </tr>
+                       <% } %>
+                    </tbody>
+                      </table>

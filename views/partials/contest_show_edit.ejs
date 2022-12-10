@@ -1,0 +1,42 @@
+
+<style>
+	.ramu{
+   float: right;
+	}
+</style>
+
+<div class="ramu">
+	<h2>Update contest</h2>
+	 <form  class="form-container"action="/admin/contest/update/<%=data._id %>"  enctype="multipart/form-data" method="POST">
+
+		<label for="model"><b>contest_type</b></label>
+		<input type="text" placeholder="Enter contest_type" name="contest_type"value="<%=data.contest_type%>">
+
+		<label for="model"><b>cancellation</b></label>
+		<input type="text" placeholder="Enter cancellation" name="cancellation"value="<%=data.cancellation%>">
+
+<label for="model"><b>Is_Free</b></label>
+		<input type="text" placeholder="Enter Is_Free" name="Is_Free"value="<%=data.Is_Free%>">
+
+<label for="model"><b>Entry_fees</b></label>
+		<input type="text" placeholder="Enter Entry_fees" name="Entry_fees"value="<%=data.Entry_fees%>">
+
+<label for="model"><b>Total_spots</b></label>
+		<input type="text" placeholder="Enter Total_spots" name="Total_spots"value="<%=data.Total_spots%>">
+
+<label for="model"><b> First_Winning_prize</b></label>
+		<input type="text" placeholder="Enter  First_Winning_prize" name=" First_Winning_prize"value="<%=data. First_Winning_prize%>">
+
+
+	   <label for="name"><b> Winnig_percantage</b></label>
+	   <input type="text" placeholder="Enter  Winnig_percantage" name=" Winnig_percantage"value="<%=data. Winnig_percantage%>">
+
+	   <label for="name"><b>  Prize_pool</b></label>
+	   <input type="text" placeholder="Enter   Prize_pool" name="Prize_pool"value="<%=data.Prize_pool%>">
+
+<label for="name"><b> Prize_breakup</b></label>
+	   <input type="text" placeholder="Enter  Winnig_percantage" name="Prize_breakup"value="<%=data.Prize_breakup%>">
+
+	   <button type="submit" class="btn">Submit</button>
+	 </form>
+   </div>

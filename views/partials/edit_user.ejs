@@ -1,0 +1,20 @@
+
+<style>
+	.ramu{
+   float: right;
+	}
+</style>
+
+<div class="ramu">
+	<h2>Edit Category </h2>
+	 <form  class="form-container"action="/Category_update/<%= list._id %>"  enctype="multipart/form-data" method="POST">
+		<label for="id"><b>id</b></label>
+	   <input type="text" placeholder="id" name="_id"value="<%=list._id%>"readOnly>
+	   <label for="name"><b>Name</b></label>
+	   <input type="text" placeholder="Enter Name" name="name"value="<%=list.name%>">
+	   <label for="file"><b>select file</b></label>
+	   <input type="file" placeholder="Choose image" name="image" value="uploads/<%=list.image%>">
+	   <br><br>
+	   <button type="submit" class="btn">Submit</button>
+	 </form>
+   </div>

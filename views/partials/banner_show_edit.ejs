@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<style>
+	.ramu{
+   float: right;
+	}
+	body{background-color:papya;}
+</style>
+
+
+<body>
+  
+<div class="container-fluid mt-3">
+  <div class="row">
+   <div class="col-sm-3 p-3 ">
+    </div>
+    <div class="col-sm-3 p-3 ">
+
+
+<div class="ramu">
+	<h2>Update banner </h2>
+	 <form  class="form-container"action="/admin/banner/update/<%= data._id %>"  enctype="multipart/form-data" method="POST">
+
+		<label for="model"><b>banner_title</b></label>
+		<input type="text" placeholder="Enter banner_title" name="banner_title"value="<%=data.banner_title%>">
+
+	   <label for="name"><b>team_names</b></label>
+	   <input type="text" placeholder="Enter team_names" name="team_names"value="<%=data.team_names%>">
+
+	   <label for="name"><b>team_names</b></label>
+	   <input type="text" placeholder="Enter date" name="date"value="<%=data.date%>">
+	   
+
+	   <label for="file"><b>select file</b></label>
+	   <input type="file" placeholder="Choose image" name="image" value="uploads/<%=data.image%>">
+	   <br><br>
+	   <button type="submit" class="btn">Submit</button>
+	 </form>
+   </div>
+
+
+    </div>
+    <div class="col-sm-6 p-3 "></div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
